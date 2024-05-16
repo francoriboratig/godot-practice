@@ -1,0 +1,6 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1715891797
+default_env.tres::Environment::4038177193945278041::1715545251::0::1::::<><>::
+icon.png::CompressedTexture2D::3082131064751264504::1715471249::1715471333::1::::<><>::
+Sprite.gd::GDScript::-1::1715471315::0::1::::<>Sprite2D<>::
+Sprite.tscn::PackedScene::3316598889906348478::1715545251::0::1::::<><>::uid://bj6aipcojuiom::::res://icon.png<>res://Sprite.gd
