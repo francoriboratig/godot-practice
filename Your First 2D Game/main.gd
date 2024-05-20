@@ -40,7 +40,7 @@ func _on_mob_timer_timeout():
 	mob_spawn_location.progress_ratio = randf()
 	
 	# Set the mob's loctaion perpendicular to the path direction.
-	var direction = mob_spawn_location.rotation + PI * 2
+	var direction = mob_spawn_location.rotation + PI / 2
 	
 	# Set the mob's position to a random location.
 	mob.position = mob_spawn_location.position
