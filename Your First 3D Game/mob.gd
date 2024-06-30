@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+# Emmited when a player jumps on the mob
+signal squashed
+
 # Minimum speed of the mob in meters per second.
 @export var min_speed = 10
 
@@ -34,6 +37,9 @@ func initialize(start_position, player_position):
 	velocity = velocity.rotated(Vector3.UP, rotation.y)
 	
 
+func squash():
+	squashed.emit()
+	queue_free()
 
 func _on_visible_on_screen_enabler_3d_screen_exited():
 	# Despawn this mob instance

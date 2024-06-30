@@ -7,9 +7,8 @@
 radius = 1.00221
 
 [node name="Player" type="CharacterBody3D"]
+collision_mask = 6
 script = ExtResource("1_xl2qh")
-speed = null
-fall_acceleration = null
 
 [node name="Pivot" type="Node3D" parent="."]
 
