@@ -5,7 +5,7 @@ extends CharacterBody3D
 # The downward acceleration when in the air, in meters per second squared.
 @export var fall_acceleration = 75
 # Vertical impulse applied to the character upon jumping in meters per second.
-@export var jump_impuse = 20
+@export var jump_impulse = 20
 # Vertical impulse applied to the character upon bouncing over a mob in
 # meters per second.
 @export var bounce_impulse = 16
@@ -33,6 +33,9 @@ func _physics_process(delta):
 		direction = direction.normalized()
 		# Setting the basis property will affect the rotation of the node.
 		$Pivot.basis = Basis.looking_at(direction)
+		$AnimationPlayer.speed_scale = 4
+	else:
+		$AnimationPlayer.speed_scale = 1
 	
 	# Ground velocity
 	target_velocity.x = direction.x * speed
@@ -47,7 +50,7 @@ func _physics_process(delta):
 	
 	# Jumping
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
-		target_velocity.y = jump_impuse
+		target_velocity.y = jump_impulse
 	
 	# Iterate through all collisions that occurred this frame
 	for index in range(get_slide_collision_count()):
@@ -70,6 +73,7 @@ func _physics_process(delta):
 				break
 	
 	move_and_slide()
+	$Pivot.rotation.x = PI / 6 * velocity.y / jump_impulse
 
 func die():
 	hit.emit()
